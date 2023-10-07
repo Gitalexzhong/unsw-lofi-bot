@@ -139,9 +139,7 @@ import { config } from "../config";
 //         });
 // };
 
-const lookupTable: { [id: string]: string } = {
-    "123456": "auth,disc,fn,email,123456,zid,ph,2696303193",
-};
+const lookupTable: { [id: string]: string } = {};
 
 export const tagUser = async (code: string, data: string, message: Message) => {
     lookupTable[code] = data + "," + (Date.now() + 3600).toString();

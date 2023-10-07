@@ -13,11 +13,9 @@ export async function execute(interaction: CommandInteraction) {
         fetchReply: true,
     });
     const endTime = Date.now();
-
-    const heartbeatLatency = client.ws.ping;
     const roundtripLatency = differenceInMilliseconds(startTime, endTime);
 
     return interaction.editReply(
-        `Bot is Working\nWebsocket heartbeat: ${heartbeatLatency}ms.\nRoundtrip latency: ${roundtripLatency}ms`
+        `Pong!\n${roundtripLatency}ms`
     );
 }

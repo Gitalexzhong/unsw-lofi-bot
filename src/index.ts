@@ -3,6 +3,7 @@ import { deployCommands } from "./deploy-commands";
 import { commands } from "./commands/command-list";
 import { config } from "./config";
 import { tagUser, verifyUser } from "./functions/verify-user";
+import { bongo } from "./functions/bongo-clone";
 // import { verifyUser } from "./functions/verify-user";
 // import { logVerificationErrorMessage } from "./functions/admin-logger";
 
@@ -67,6 +68,10 @@ client.on("messageCreate", async (message) => {
         //&& message.author.id === config.WEBHOOK_SENDER_ID
     ) {
         verifyUser(client, message);
+    } else if (
+        message.content.toLowerCase().startsWith("b.")
+    ) {
+        bongo(client, message);
     }
 });
 
