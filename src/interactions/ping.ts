@@ -12,10 +12,11 @@ export async function execute(interaction: CommandInteraction) {
         content: "Pinging...",
         fetchReply: true,
     });
+    const heartbeatLatency = client.ws.ping;
     const endTime = Date.now();
     const roundtripLatency = differenceInMilliseconds(startTime, endTime);
 
     return interaction.editReply(
-        `Pong!\n${roundtripLatency}ms`
+        `Pong!\n${heartbeatLatency}ms`
     );
 }
